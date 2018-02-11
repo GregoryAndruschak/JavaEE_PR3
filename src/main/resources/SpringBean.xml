@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="helloBean" class="ua.hw.HelloWorld">
+        <property name="name" value="Greg"/>
+    </bean>
+
+    <bean id="student" class="ua.hw.Student">
+        <constructor-arg value="85"/>
+    </bean>
+
+    <bean id="stone" class="ua.hw.Stone"/>
+
+    <bean id="lazyStudent" class="ua.hw.LazyStudent" autowire="constructor">
+
+    </bean>
+
+    <bean id="coffeeMachine" class="ua.hw.CoffeeMachine"/>
+
+    <bean id="microwave" class="ua.hw.Microwave"/>
+
+    <bean id="person" class="ua.hw.Person">
+        <property name="name" value="Steve"/>
+        <property name="age" value="24"/>
+    </bean>
+
+    <bean id="extendedPerson" class="ua.hw.ExtendedPerson">
+        <property name="name" value="Valeriy Albertovich"/>
+        <property name="age" value="54"/>
+        <property name="machines">
+            <list>
+                <ref bean="coffeeMachine"/>
+                <ref bean="microwave"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
